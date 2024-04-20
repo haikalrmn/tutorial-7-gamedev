@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/DynamicFont2.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/StageSelect.gd" type="Script" id=2]
+[ext_resource path="res://scenes/DynamicFont1.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_alien.png" type="Texture" id=6]
+
+[node name="StageSelect" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 120
+custom_constants/margin_top = 80
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 80
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 987.0
+margin_bottom = 520.0
+custom_constants/separation = 37
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 318.0
+margin_bottom = 440.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+margin_right = 318.0
+margin_bottom = 209.0
+custom_fonts/font = ExtResource( 5 )
+text = "Alien
+Alien"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 213.0
+margin_right = 318.0
+margin_bottom = 440.0
+size_flags_vertical = 3
+custom_constants/separation = 30
+alignment = 1
+
+[node name="Stage1" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
+margin_top = 31.0
+margin_right = 318.0
+margin_bottom = 66.0
+focus_mode = 2
+custom_colors/font_color = Color( 1, 0.247059, 0.247059, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 0.498039, 0.498039, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Stage 1"
+script = ExtResource( 2 )
+scene_to_load = "res://scenes/Level 1.tscn"
+
+[node name="Stage2" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 318.0
+margin_bottom = 131.0
+focus_mode = 2
+custom_colors/font_color = Color( 1, 0.247059, 0.247059, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 0.498039, 0.498039, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Stage 2"
+script = ExtResource( 2 )
+scene_to_load = "res://scenes/Level 2.tscn"
+
+[node name="Stage3" type="LinkButton" parent="HBoxContainer/VBoxContainer/VBoxContainer"]
+margin_top = 161.0
+margin_right = 318.0
+margin_bottom = 196.0
+focus_mode = 2
+custom_colors/font_color = Color( 1, 0.247059, 0.247059, 1 )
+custom_colors/font_color_hover = Color( 0.992157, 0.498039, 0.498039, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Sandbox"
+script = ExtResource( 2 )
+scene_to_load = "res://scenes/Level.tscn"
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+margin_left = 355.0
+margin_right = 867.0
+margin_bottom = 440.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/CenterContainer"]
+margin_top = 38.0
+margin_right = 512.0
+margin_bottom = 401.0
+
+[node name="Label" type="Label" parent="HBoxContainer/CenterContainer/VBoxContainer"]
+margin_right = 512.0
+margin_bottom = 103.0
+custom_fonts/font = ExtResource( 5 )
+text = "3d!"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer/VBoxContainer"]
+margin_top = 107.0
+margin_right = 512.0
+margin_bottom = 363.0
+texture = ExtResource( 6 )
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/Stage1" to="HBoxContainer/VBoxContainer/VBoxContainer/Stage1" method="_on_Stage1_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/Stage2" to="HBoxContainer/VBoxContainer/VBoxContainer/Stage2" method="_on_Stage2_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/VBoxContainer/Stage3" to="HBoxContainer/VBoxContainer/VBoxContainer/Stage3" method="_on_Stage2_pressed"]

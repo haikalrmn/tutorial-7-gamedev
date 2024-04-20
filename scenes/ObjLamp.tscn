@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/ObjLamp.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.996078, 1, 0, 1 )
+
+[sub_resource type="CapsuleShape" id=2]
+
+[node name="ObjLamp" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0125561, 2.1526, 0.000496864 )
+invert_faces = true
+polygon = PoolVector2Array( 0, 0, -0.0237942, 0.769667, 0.783403, 1.12062, 1.16775, -0.0480061 )
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+material = SubResource( 1 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="Base" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1, -0.000389784, 0.000242698, 0.000389833, 1, -0.000212909, -0.00024262, 0.000212997, 1, 0, 0, 0 )
+sides = 64
+cone = true
+
+[node name="Batang" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1, -0.000389784, 0.000242698, 0.000389833, 1, -0.000212909, -0.00024262, 0.000212997, 1, 0, 0.828934, 0 )
+radius = 0.161
+height = 2.637
+sides = 64
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27095, 0 )
+omni_range = 18.255
+omni_attenuation = 2.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1.5, 0, 1, -6.55671e-08, 0, 1.85896, 0.016 )
+shape = SubResource( 2 )
